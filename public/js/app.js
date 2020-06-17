@@ -57,10 +57,10 @@ this.deleteMovie = (id) => {
   })
 }
 
-this.editMovie = () => {
+this.editMovie = (movie) => {
   $http({
     method: 'PUT',
-    url: '/movies/' + movies._id,
+    url: '/movies/' + movie._id,
     data: {
       rating: this.updatedRating
     }
