@@ -16,7 +16,7 @@
         <input type="text" ng-model="ctrl.createForm.genre" placeholder="movie genre">
         <input type="text" ng-model="ctrl.createForm.rating" placeholder="movie rating">
         <input type="text" ng-model="ctrl.createForm.year" placeholder="movie year">
-        <input type="submit" placeholder="Add Movie">
+        <input type="submit" value="Add Movie">
       </form>
     </div>
     <div class="container">
@@ -41,12 +41,16 @@
       <h2>Rating: {{ctrl.movie.rating}}</h2>
       <h2>Year: {{ctrl.movie.year}}</h2>
       <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
+
+      <button type="button" name="button">Edit</button>
+
+      <form ng-submit="ctrl.editMovie(ctrl.movie)">
+        <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
+        <input type="submit"value="update rating">
+      </form>
+
     </div>
 
-    <!-- <form ng-submit="ctrl.editMovie(movies)">
-      <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
-      <input type="submit"value="update rating">
-    </form>
-    <button type="button" ng-click= "ctrl.deleteMovie(movie._id)">Delete</button> -->
+
   </body>
 </html>
