@@ -5,10 +5,12 @@ app.controller('MyController',['$http', function($http){
   this.info = false
   this.createForm = {}
   this.movies = []
-  this.movie = []
+  this.movie = {}
 
-  this.toggleInfo = () => {
+  this.toggleInfo = (movie) => {
     this.info = ! this.info
+    this.movie = movie
+
   }
 
 
@@ -49,6 +51,7 @@ this.deleteMovie = (id) => {
   }).then(response => {
     const removeByIndex = this.movies.findIndex(movie => movie._id === id)
     this.movies.splice(removeByIndex, 1)
+    this.info = false
   }, error => {
     console.log(error);
   })

@@ -29,18 +29,25 @@
         <div class="display-info">
           <img id="star" src="/css/star.png" alt=""> {{movie.rating}} <br>
           {{movie.title}} <br>
-          <button type="button" ng-click="ctrl.toggleInfo()">More Info</button>
+          <button type="button" ng-click="ctrl.toggleInfo(movie)">More Info</button>
         </div>
 
       </div>
 
     </div>
-    <div ng-if="ctrl.info === true" class="edit-delete">
-      <form ng-submit="ctrl.editMovie(movies)">
-        <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
-        <input type="submit"value="update rating">
-      </form>
-      <button type="button" ng-click= "ctrl.deleteMovie(movie._id)">Delete</button>
+    <div class="edit-delete" ng-if="ctrl.info === true" >
+      <h2>Movie Name: {{ctrl.movie.title}}</h2>
+      <h2>Genre: {{ctrl.movie.genre}}</h2>
+      <h2>Rating: {{ctrl.movie.rating}}</h2>
+      <h2>Year: {{ctrl.movie.year}}</h2>
+      <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
+       
     </div>
+
+    <!-- <form ng-submit="ctrl.editMovie(movies)">
+      <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
+      <input type="submit"value="update rating">
+    </form>
+    <button type="button" ng-click= "ctrl.deleteMovie(movie._id)">Delete</button> -->
   </body>
 </html>
