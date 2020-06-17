@@ -5,6 +5,7 @@ app.controller('MyController',['$http', function($http){
   this.createForm = {}
   this.movies = []
   this.movie = ''
+  const controller = this;
 
 this.createMovie = () => {
   $http(
@@ -47,6 +48,17 @@ this.deleteMovie = (id) => {
     console.log(error);
   })
 }
+
+this.editMovie = () => {
+  $http({
+    method: 'PUT',
+    url: '/movies/' + movies._id,
+    data: {
+      rating: this.updatedRating
+    }
+  }).then()
+}
+
 
 this.getMovies();
 
