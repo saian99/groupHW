@@ -3,7 +3,7 @@
 // ==================
 const express = require('express')
 const router = express.Router()
-const Movie = require('../models/bookmark.js')
+const Movie = require('../models/movie.js')
 
 
 // ==================
