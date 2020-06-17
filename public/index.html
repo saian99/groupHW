@@ -41,12 +41,14 @@
       <h2>Rating: {{ctrl.movie.rating}}</h2>
       <h2>Year: {{ctrl.movie.year}}</h2>
       <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
+
       <button type="button" name="button">Edit</button>
 
       <form ng-submit="ctrl.editMovie(ctrl.movie)">
         <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
         <input type="submit"value="update rating">
       </form>
+
     </div>
 
 
