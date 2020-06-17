@@ -24,7 +24,14 @@ body{
   border: 1px solid #62696e;
   margin: 10px auto;
   width:18%;
+  transition: 1s;
 }
+
+.display:hover{
+  border-radius: 5px;
+  transform:  translate(5px, 110px);
+}
+
 
 .display-img{
   height: 70%;
