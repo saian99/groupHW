@@ -2,17 +2,10 @@ const app = angular.module("MovieApp", [])
 
 app.controller('MyController',['$http', function($http){
   this.h1 = 'Movie Cataloger'
-  this.info = false
   this.createForm = {}
   this.movies = []
-  this.movie = {}
-
-  this.toggleInfo = (movie) => {
-    this.info = ! this.info
-    this.movie = movie
-
-  }
-
+  this.movie = ''
+  const controller = this;
 
 this.createMovie = () => {
   $http(
@@ -51,7 +44,6 @@ this.deleteMovie = (id) => {
   }).then(response => {
     const removeByIndex = this.movies.findIndex(movie => movie._id === id)
     this.movies.splice(removeByIndex, 1)
-    this.info = false
   }, error => {
     console.log(error);
   })
@@ -64,7 +56,14 @@ this.editMovie = () => {
     data: {
       rating: this.updatedRating
     }
-  }).then()
+  }).then(
+    function(response){
+      controller.getMovies();
+    },
+    function(error){
+      
+    }
+  )
 }
 
 
