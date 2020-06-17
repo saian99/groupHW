@@ -29,13 +29,13 @@
         <div class="display-info">
           <img id="star" src="/css/star.png" alt=""> {{movie.rating}} <br>
           {{movie.title}} <br>
-          <button type="button" name="button">More Info</button>
+          <button type="button" ng-click="ctrl.toggleInfo()">More Info</button>
         </div>
 
       </div>
 
     </div>
-    <div class="edit-delete">
+    <div ng-if="ctrl.info === true" class="edit-delete">
       <form ng-submit="ctrl.editMovie(movies)">
         <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
         <input type="submit"value="update rating">

@@ -2,9 +2,14 @@ const app = angular.module("MovieApp", [])
 
 app.controller('MyController',['$http', function($http){
   this.h1 = 'Movie Cataloger'
+  this.info = false
   this.createForm = {}
   this.movies = []
   this.movie = []
+
+  this.toggleInfo = () => {
+    this.info = ! this.info
+  }
 
 
 this.createMovie = () => {
