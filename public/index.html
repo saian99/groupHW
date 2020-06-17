@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MovieApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <title></title>
+  </head>
+  <body ng-controller="MyController as ctrl">
+    <div class="container">
+      <h5>{{ctrl.h1}}</h5>
+      <form ng-submit="ctrl.createMovie()">
+        <input type="text" ng-model="ctrl.createForm.title" placeholder="movie title">
+        <input type="text" ng-model="ctrl.createForm.img" placeholder="movie image">
+        <input type="text" ng-model="ctrl.createForm.genre" placeholder="movie genre">
+        <input type="text" ng-model="ctrl.createForm.rating" placeholder="movie rating">
+        <input type="text" ng-model="ctrl.createForm.year" placeholder="movie year">
+        <input type="submit" placeholder="Add Movie">
+      </form>
+      <table>
+        <tr ng-repeat="movie in ctrl.movies">
+          <td>{{movie.title}}</td>
+          <td ng-click= "ctrl.deleteMovie(movie._id)">X</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

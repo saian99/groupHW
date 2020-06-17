@@ -6,8 +6,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 
-const moviesController = require('./controllers/movies.js')
-app.use('/movies', moviesController)
+
 
 // favicon.ico error
 app.use( function(req, res, next) {
@@ -25,7 +24,9 @@ mongoose.connection.once('open', ()=>{
     console.log('connected to mongod...');
 });
 
-
+const moviesController = require('./controllers/movies.js')
+app.use('/movies', moviesController)
 
 app.listen(3000,() =>{
   console.log("listening...");
+})
