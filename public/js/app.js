@@ -4,8 +4,8 @@ app.controller('MyController',['$http', function($http){
   this.h1 = 'Movie Cataloger'
   this.createForm = {}
   this.movies = []
-  this.movie = ''
-  const controller = this;
+  this.movie = []
+
 
 this.createMovie = () => {
   $http(

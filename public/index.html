@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
     <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/app.css">
     <title></title>
   </head>
   <body ng-controller="MyController as ctrl">
-    <div class="container">
-      <h5>{{ctrl.h1}}</h5>
+    <h1>{{ctrl.h1}}</h1>
+    <div class="input-form">
       <form ng-submit="ctrl.createMovie()">
         <input type="text" ng-model="ctrl.createForm.title" placeholder="movie title">
         <input type="text" ng-model="ctrl.createForm.img" placeholder="movie image">
@@ -17,17 +18,29 @@
         <input type="text" ng-model="ctrl.createForm.year" placeholder="movie year">
         <input type="submit" placeholder="Add Movie">
       </form>
-      <table>
-        <tr ng-repeat="movie in ctrl.movies">
-          <td>{{movie.title}}</td>
-          <td ng-click= "ctrl.deleteMovie(movie._id)">X</td>
-          <form ng-submit="ctrl.editMovie(movies)">
-            <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
-            <input type="submit"value="update rating">
+    </div>
+    <div class="container">
+      <div class="display" ng-repeat="movie in ctrl.movies">
 
-          </form>
-        </tr>
-      </table>
+        <div class="display-img" >
+          <img src="{{movie.img}}" alt="movie-poster">
+        </div>
+
+        <div class="display-info">
+          <img id="star" src="/css/star.png" alt=""> {{movie.rating}} <br>
+          {{movie.title}} <br>
+          <button type="button" name="button">More Info</button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="edit-delete">
+      <form ng-submit="ctrl.editMovie(movies)">
+        <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
+        <input type="submit"value="update rating">
+      </form>
+      <button type="button" ng-click= "ctrl.deleteMovie(movie._id)">Delete</button>
     </div>
   </body>
 </html>
