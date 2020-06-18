@@ -5,10 +5,12 @@ app.controller('MyController',['$http', function($http){
   this.createForm = {}
   this.movies = []
   this.movie = ''
+  const controller = this;
 
   this.toggleInfo = (movie) => {
-    this.info = ! this.Info
+    this.info = ! this.info
     this.movie = movie
+    console.log(movie);
   }
 
 
@@ -54,7 +56,7 @@ this.deleteMovie = (id) => {
   })
 }
 
-this.editMovie = () => {
+this.editMovie = (movie) => {
   $http({
     method: 'PUT',
     url: '/movies/' + movie._id,
@@ -63,7 +65,8 @@ this.editMovie = () => {
     }
   }).then(
     function(response){
-      console.log(response.data);
+      controller.getMovies()
+      console.log(movie);
     }
   )
 }
