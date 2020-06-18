@@ -3,6 +3,7 @@ body{
   text-align:center;
 }
 .container{
+
   background-color: black;
   display: flex;
   justify-content: space-between;
@@ -51,6 +52,14 @@ body{
   color: white;
 }
 
+.edit-delete{
+  border-top: 2px solid black;
+}
+
+.edit-form{
+  border-top: 2px solid black;
+  padding-top: 20px;
+}
 
 #star{
   width: 15px;

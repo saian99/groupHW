@@ -45,7 +45,7 @@
 
 
   </div>
-  <form ng-submit="ctrl.editMovie(ctrl.movie)" ng-if="ctrl.edit === true">
+  <form class="edit-form" ng-submit="ctrl.editMovie(ctrl.movie)" ng-if="ctrl.edit === true">
     <input type="text" ng-model="ctrl.updatedTitle" placeholder="title">
     <input type="text" ng-model="ctrl.updatedImg" placeholder="img">
     <input type="text" ng-model="ctrl.updatedGenre" placeholder="genre">
