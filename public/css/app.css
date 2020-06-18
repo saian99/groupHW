@@ -1,10 +1,9 @@
 body{
-  margin: 0 auto;
+  margin: 50px auto;
   text-align:center;
 }
 .container{
   background-color: black;
-  border: 2px solid black;
   display: flex;
   justify-content: space-between;
   flex-flow: wrap;
@@ -12,6 +11,7 @@ body{
   height:350px;
   margin: 5% auto;
   text-align: center;
+  overflow-y: scroll;
 }
 
 .input-form{
@@ -23,13 +23,13 @@ body{
 .display{
   border: 1px solid #62696e;
   margin: 10px auto;
-  width:18%;
+  width:200px;
   transition: 1s;
 }
 
 .display:hover{
   border-radius: 5px;
-  transform:  translate(5px, 110px);
+  transform:  translate(10px);
   cursor: pointer;
 }
 

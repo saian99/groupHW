@@ -76,6 +76,7 @@ this.editMovie = (movie) => {
     }
   }).then(
     function(response){
+      
       controller.getMovies()
       console.log(movie);
     }
