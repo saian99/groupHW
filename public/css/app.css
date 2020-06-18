@@ -1,0 +1,66 @@
+body{
+  margin: 50px auto;
+  text-align:center;
+}
+.container{
+
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  width: 90%;
+  height:350px;
+  margin: 5% auto;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.input-form{
+  width: 90%;
+  margin: 20px auto;
+
+}
+
+.display{
+  border: 1px solid #62696e;
+  margin: 10px auto;
+  width:200px;
+  transition: 1s;
+}
+
+.display:hover{
+  border-radius: 5px;
+  transform:  translate(10px);
+  cursor: pointer;
+}
+
+
+.display-img{
+  height: 70%;
+}
+
+.display-img > img{
+  width: 100%;
+  height: 100%;
+}
+
+.display-info {
+  background-color: #43484d;
+  width: 100%;
+  height: 30%;
+  font-size: 20px;
+  color: white;
+}
+
+.edit-delete{
+  border-top: 2px solid black;
+}
+
+.edit-form{
+  border-top: 2px solid black;
+  padding-top: 20px;
+}
+
+#star{
+  width: 15px;
+}

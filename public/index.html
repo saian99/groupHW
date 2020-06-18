@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MovieApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/app.css">
+    <title></title>
+  </head>
+  <body ng-controller="MyController as ctrl">
+    <h1>{{ctrl.h1}}</h1>
+    <div class="input-form">
+      <form ng-submit="ctrl.createMovie()">
+        <input type="text" ng-model="ctrl.createForm.title" placeholder="movie title">
+        <input type="text" ng-model="ctrl.createForm.img" placeholder="movie image">
+        <input type="text" ng-model="ctrl.createForm.genre" placeholder="movie genre">
+        <input type="text" ng-model="ctrl.createForm.rating" placeholder="movie rating">
+        <input type="text" ng-model="ctrl.createForm.year" placeholder="movie year">
+        <input type="submit" value="Add Movie">
+      </form>
+    </div>
+    <div class="container">
+      <div class="display" ng-repeat="movie in ctrl.movies">
+
+        <div class="display-img" ng-click="ctrl.toggleInfo(movie)">
+          <img src="{{movie.img}}" alt="movie-poster">
+        </div>
+
+        <div class="display-info">
+          <img id="star" src="/css/star.png" alt=""> {{movie.rating}} <br>
+          {{movie.title}} <br>
+        </div>
+
+    </div>
+
+    </div>
+    <div class="edit-delete" ng-if="ctrl.info === true" >
+      <h2>Movie Name: {{ctrl.movie.title}}</h2>
+      <h2>Genre: {{ctrl.movie.genre}}</h2>
+      <h2>Rating: {{ctrl.movie.rating}}</h2>
+      <h2>Year: {{ctrl.movie.year}}</h2>
+      <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
+
+      <button type="button"  ng-click="ctrl.toggleEdit()" name="button">Edit</button>
+
+
+  </div>
+  <form class="edit-form" ng-submit="ctrl.editMovie(ctrl.movie)" ng-if="ctrl.edit === true">
+    <input type="text" ng-model="ctrl.updatedTitle" placeholder="title">
+    <input type="text" ng-model="ctrl.updatedImg" placeholder="img">
+    <input type="text" ng-model="ctrl.updatedGenre" placeholder="genre">
+    <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
+    <input type="text" ng-model="ctrl.updatedYear" placeholder="year">
+    <input type="submit"value="update rating">
+  </form>
+
+
+  </body>
+</html>
