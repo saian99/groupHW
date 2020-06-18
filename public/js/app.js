@@ -2,17 +2,24 @@ const app = angular.module("MovieApp", [])
 
 app.controller('MyController',['$http', function($http){
   this.h1 = 'Movie Cataloger'
+  this.info = false
+  this.edit = false
   this.createForm = {}
   this.movies = []
-  this.movie = ''
+  this.movie = {}
   const controller = this;
 
   this.toggleInfo = (movie) => {
     this.info = ! this.info
+    this.edit = false
     this.movie = movie
-    console.log(movie);
   }
 
+this.toggleEdit = (movie) => {
+  this.edit = !this.edit
+  this.info = false
+
+}
 
 this.createMovie = () => {
   $http(
@@ -61,7 +68,11 @@ this.editMovie = (movie) => {
     method: 'PUT',
     url: '/movies/' + movie._id,
     data: {
-      rating: this.updatedRating
+      title: this.updatedTitle,
+      img:this.updatedImg,
+      genre:this.updatedGenre,
+      rating: this.updatedRating,
+      year:this.updatedYear
     }
   }).then(
     function(response){

@@ -22,34 +22,37 @@
     <div class="container">
       <div class="display" ng-repeat="movie in ctrl.movies">
 
-        <div class="display-img" >
+        <div class="display-img" ng-click="ctrl.toggleInfo(movie)">
           <img src="{{movie.img}}" alt="movie-poster">
         </div>
 
         <div class="display-info">
           <img id="star" src="/css/star.png" alt=""> {{movie.rating}} <br>
           {{movie.title}} <br>
-          <button type="button" ng-click="ctrl.toggleInfo(movie)">More Info</button>
         </div>
-        <div class="edit-delete" ng-if="ctrl.info === true" >
-          <h2>Movie Name: {{movie.title}}</h2>
-          <h2>Genre: {{movie.genre}}</h2>
-          <h2>Rating: {{movie.rating}}</h2>
-          <h2>Year: {{movie.year}}</h2>
-          <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
-
-          <button type="button" name="button">Edit</button>
-
-          <form ng-submit="ctrl.editMovie(ctrl.movie)">
-            <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
-            <input type="submit"value="update rating">
-          </form>
-      </div>
 
     </div>
 
-
     </div>
+    <div class="edit-delete" ng-if="ctrl.info === true" >
+      <h2>Movie Name: {{ctrl.movie.title}}</h2>
+      <h2>Genre: {{ctrl.movie.genre}}</h2>
+      <h2>Rating: {{ctrl.movie.rating}}</h2>
+      <h2>Year: {{ctrl.movie.year}}</h2>
+      <button type="button" ng-click= "ctrl.deleteMovie(ctrl.movie._id)">Delete</button>
+
+      <button type="button"  ng-click="ctrl.toggleEdit()" name="button">Edit</button>
+
+
+  </div>
+  <form ng-submit="ctrl.editMovie(ctrl.movie)" ng-if="ctrl.edit === true">
+    <input type="text" ng-model="ctrl.updatedTitle" placeholder="title">
+    <input type="text" ng-model="ctrl.updatedImg" placeholder="img">
+    <input type="text" ng-model="ctrl.updatedGenre" placeholder="genre">
+    <input type="text" ng-model="ctrl.updatedRating" placeholder="rating">
+    <input type="text" ng-model="ctrl.updatedYear" placeholder="year">
+    <input type="submit"value="update rating">
+  </form>
 
 
   </body>

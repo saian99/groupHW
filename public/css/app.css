@@ -30,6 +30,7 @@ body{
 .display:hover{
   border-radius: 5px;
   transform:  translate(5px, 110px);
+  cursor: pointer;
 }
 
 
